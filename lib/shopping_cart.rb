@@ -31,4 +31,21 @@ class ShoppingCart
       category == product.category
     end
   end
+
+  def percentage_occupied
+    raw_percent = 100 * total_number_of_products.to_f / @capacity
+    raw_percent.floor(2) #truncate decimals to prevent long output
+  end
+
+  def sorted_products_by_quantity
+    @products.sort_by do |product|
+      product.quantity
+    end
+  end
+
+  def product_breakdown
+    @products.group_by do |product|
+      product.category
+    end
+  end
 end
