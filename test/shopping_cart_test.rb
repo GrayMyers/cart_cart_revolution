@@ -38,7 +38,9 @@ class ShoppingCartTest < Minitest::Test
   end
 
   def test_it_has_details
-    assert_equal {name: "King Soopers",capacity: 30}, @shopping_cart_1.details
-    assert_equal {name: "Safeway",capacity: 20}, @shopping_cart_2.details
+    cart_1_details_hash = {name: "King Soopers",capacity: 30}
+    cart_2_details_hash = {name: "Safeway",capacity: 20}
+    assert_equal cart_1_details_hash, @shopping_cart_1.details
+    assert_equal cart_2_details_hash, @shopping_cart_2.details
   end
 end
