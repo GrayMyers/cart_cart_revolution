@@ -87,6 +87,6 @@ class ShoppingCartTest < Minitest::Test
     product2 = Product.new(:meat, 'chicken', 4.50, '7')
     @shopping_cart_1.add_product(product1)
     @shopping_cart_1.add_product(product2)
-    assert_equal 73.3, @shopping_cart_1.percentage_occupied
+    assert_equal 73.33, @shopping_cart_1.percentage_occupied
   end
 end
