@@ -43,4 +43,13 @@ class ShoppingCartTest < Minitest::Test
     assert_equal cart_1_details_hash, @shopping_cart_1.details
     assert_equal cart_2_details_hash, @shopping_cart_2.details
   end
+
+  def test_it_can_track_number_of_products
+    assert_equal 0, @shopping_cart_1.total_number_of_products
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    @shopping_cart_1.add_product(product1)
+    @shopping_cart_1.add_product(product2)
+    assert_equal 12, @shopping_cart_1.total_number_of_products
+  end
 end
