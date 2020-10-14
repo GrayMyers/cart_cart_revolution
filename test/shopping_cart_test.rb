@@ -67,8 +67,8 @@ class ShoppingCartTest < Minitest::Test
   end
 
   def test_it_determines_products_by_category
-    assert_equal 0, @shopping_cart_1.products_by_category(:paper)
-    assert_equal 0, @shopping_cart_1.products_by_category(:meat)
+    assert_equal [], @shopping_cart_1.products_by_category(:paper)
+    assert_equal [], @shopping_cart_1.products_by_category(:meat)
     product1 = Product.new(:paper, 'toilet paper', 3.70, '15')
     product2 = Product.new(:meat, 'chicken', 4.50, '7')
     product3 = Product.new(:meat, 'beef', 6.50, '4')
@@ -77,7 +77,7 @@ class ShoppingCartTest < Minitest::Test
     @shopping_cart_1.add_product(product2)
     @shopping_cart_1.add_product(product3)
     @shopping_cart_1.add_product(product4)
-    assert_equal 15, @shopping_cart_1.products_by_category(:paper)
-    assert_equal 11, @shopping_cart_1.products_by_category(:meat)
+    assert_equal [product1], @shopping_cart_1.products_by_category(:paper)
+    assert_equal [product2,product3], @shopping_cart_1.products_by_category(:meat)
   end
 end
