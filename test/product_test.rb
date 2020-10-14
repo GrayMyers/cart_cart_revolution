@@ -1,6 +1,6 @@
 require 'minitest/autorun'
 require 'minitest/pride'
-require './lib/product'
+require './lib/product.rb' #Could not load file unless it contained the extension .rb
 
 class ProductTest < Minitest::Test
   #Iteration1
