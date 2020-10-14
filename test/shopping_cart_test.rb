@@ -100,6 +100,6 @@ class ShoppingCartTest < Minitest::Test
     @shopping_cart_1.add_product(product2)
     @shopping_cart_1.add_product(product3)
     @shopping_cart_1.add_product(product4)
-    assert_equal [product1,product2,product4,product3], @shopping_cart_1.sorted_products_by_quantity
+    assert_equal [product3,product4,product2,product1], @shopping_cart_1.sorted_products_by_quantity
   end
 end
