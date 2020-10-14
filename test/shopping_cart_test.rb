@@ -24,7 +24,16 @@ class ShoppingCartTest < Minitest::Test
     assert_equal 20,@shopping_cart_2.capacity
   end
 
-  def test_it_has_products
+  def test_it_has_products_array
     assert_equal [], @shopping_cart_1.products
+  end
+
+  def test_it_can_add_products
+    assert_equal [], @shopping_cart_1.products
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '10')
+    product2 = Product.new(:meat, 'chicken', 4.50, '2')
+    @shopping_cart_1.add_product(product1)
+    @shopping_cart_1.add_product(product2)
+    assert_equal [product1, product2], @shopping_cart_1.products
   end
 end
