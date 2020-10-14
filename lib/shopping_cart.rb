@@ -15,4 +15,10 @@ class ShoppingCart
   def details
     {name: @name, capacity: @capacity}
   end
+
+  def total_number_of_products
+    @products.sum do |product|
+      product.quantity
+    end
+  end
 end
