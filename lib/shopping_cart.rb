@@ -42,4 +42,10 @@ class ShoppingCart
       product.quantity
     end
   end
+
+  def product_breakdown
+    @products.group_by do |product|
+      product.category
+    end
+  end
 end
