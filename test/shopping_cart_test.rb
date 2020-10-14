@@ -52,4 +52,18 @@ class ShoppingCartTest < Minitest::Test
     @shopping_cart_1.add_product(product2)
     assert_equal 12, @shopping_cart_1.total_number_of_products
   end
+
+  def test_it_can_check_full
+    assert_equal false, @shopping_cart_1.is_full?
+    assert_equal false, @shopping_cart_2.is_full?
+    product1 = Product.new(:paper, 'toilet paper', 3.70, '15')
+    product2 = Product.new(:meat, 'chicken', 4.50, '7')
+    @shopping_cart_1.add_product(product1)
+    @shopping_cart_1.add_product(product2)
+    @shopping_cart_2.add_product(product1)
+    @shopping_cart_2.add_product(product2)
+    assert_equal false, @shopping_cart_1.is_full?
+    assert_equal true, @shopping_cart_2.is_full?
+  end
+
 end
